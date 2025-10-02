@@ -25,25 +25,42 @@ def DNA_menu():
 
 #menu for the first txt file
 def DNA_menu_raw():
-    print("1")
+    print("sequence 1")
     print()
-    print("2")
+    print("sequence 2")
     print()
-    print("3")
+    print("sequence 3")
     print()
-    print("4")
+    print("sequence 4")
     print()
     print()
 
 #menu for the second txt file
 def DNA_menu_complicated():
-    print("1")
+    print("sequence 1")
     print()
-    print("2")
+    print("sequence 2")
     print()
-    print("3")
+    print("sequence 3")
     print()
-    print("4")
+    print("sequence 4")
     print()
     print()
 
+while True:
+     
+     #opening menu
+     DNA_menu()
+     dna_menu = input("which file would you like to check? ")
+     if dna_menu == "1":
+        DNA_menu_raw()
+        break
+    
+     elif dna_menu == "2":
+         DNA_menu_complicated()
+         break
+    
+     elif dna_menu == "3":
+         print("ok ending program")
+         break
+     #breaking the whole loop for now until the dictonary is up and running
