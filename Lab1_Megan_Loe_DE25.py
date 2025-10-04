@@ -3,13 +3,22 @@
 #read the text file called dna_raw.txt
 #each sequene is composed of two lines of data: the first line beginning with > sign is the sequence ID, while the following line is the actual sequence
 #the actual sequence is not case-sensitive, which means that lower and upper case letters are treated the same
-
+#letters that need to be scanned for are A, C, G and T
 
 #for each sequence, create a dictionary to count the number of each DNA letter in that sequence
 #for each sequence, graph the frequency of DNA letters for each sequence
 
 
 #all of the above is the instructions for this lab, I copied into here so I don't have to constantly switch windows and lose track of where I was
+
+#the dictionary
+dna_letters = dict(
+    A = 0, 
+    C = 0, 
+    G = 0, 
+    T = 0
+    )
+
 
 
 #this area is for the menus
@@ -47,6 +56,8 @@ def DNA_menu_complicated():
     print()
     print()
 
+
+
 while True:
      
      #opening menu
@@ -55,6 +66,7 @@ while True:
      if dna_menu == "1":
         DNA_menu_raw()
         break
+        
     
      elif dna_menu == "2":
          DNA_menu_complicated()
@@ -64,3 +76,9 @@ while True:
          print("ok ending program")
          break
      #breaking the whole loop for now until the dictonary is up and running
+
+
+
+
+
+
