@@ -11,8 +11,8 @@
 
 #all of the above is the instructions for this lab, I copied into here so I don't have to constantly switch windows and lose track of where I was
 
-#this is here just in case, I need to use it
-import re
+#the imported functions
+import re #I might not need this one
 
 import linecache
 
@@ -43,7 +43,7 @@ def DNA_menu_raw():
     print()
 
 #menu for the second txt file
-def DNA_menu_complicated():
+def DNA_menu_comp():
     print("sequence 1")
     print()
     print("sequence 2")
@@ -57,21 +57,23 @@ def DNA_menu_complicated():
 #dna counting, its counts! partially. . .
 def dna_count(DNA):
     #the dictionary for the letters that need to be found
-    dna_letters = {
-        "A" : 0, 
-        "C" : 0, 
-        "G" : 0, 
-        "T" : 0}
-    
+    dna_let = {
+        "A" : 0, "C" : 0, 
+        "G" : 0, "T" : 0}
     #to count the letters
     for letters in DNA:
-        dna_letters ["A"] += 1
-        dna_letters ["C"] += 1
-        dna_letters ["G"] += 1
-        dna_letters ["T"] += 1
-        print(dna_letters)
-    
-    #need to do an if statement in this function
+        if letters == "a" or letters == "A":
+            dna_let["A"] += 1
+        
+        elif letters == "c" or letters == "C":
+            dna_let ["C"] += 1
+        
+        elif letters == "g" or letters == "G":
+            dna_let ["G"] += 1
+        
+        elif letters == "t" or letters == "T":
+            dna_let ["T"] += 1    
+    print(dna_let)
 
 #the loop
 while True:
@@ -82,11 +84,10 @@ while True:
      if dna_menu == "1":
         DNA_menu_raw()
         
-    
      elif dna_menu == "2":
-         DNA_menu_complicated()
+         DNA_menu_comp()
          break
-    
+         
      elif dna_menu == "3":
          print("ok ending program")
          break
@@ -98,35 +99,34 @@ while True:
         #opens the file
          dna_raw = open("dna_raw.txt")
 
-
-         if dna_seq_1 == "1":
+        #the menu to select sequences
+         if dna_seq_1 == "1": #sequence 1
              seq1_raw = linecache.getline("dna_raw.txt", 2)
              print(seq1_raw)
+             dna_count(seq1_raw) #counts the letters in the sequence
+             dna_raw.close()
              break
          
-         elif dna_seq_1 == "2":
+         elif dna_seq_1 == "2": #sequence 2
              seq2_raw = linecache.getline("dna_raw.txt", 4)
              print(seq2_raw)
+             dna_count(seq2_raw)
+             dna_raw.close()
              break
          
-         elif dna_seq_1 =="3":
+         elif dna_seq_1 =="3": #sequence 3
              seq3_raw = linecache.getline("dna_raw.txt", 6)
              print(seq3_raw)
+             dna_count(seq3_raw)
+             dna_raw.close()
              break
          
-         elif dna_seq_1 =="4":
+         elif dna_seq_1 =="4": #sequence 4
              seq4_raw = linecache.getline("dna_raw.txt", 8)
              print(seq4_raw)
+             dna_count(seq4_raw)
+             dna_raw.close()
              break
-
-
-
      
 
-
-
-
-
-
-
-
+             
