@@ -11,13 +11,10 @@
 
 #all of the above is the instructions for this lab, I copied into here so I don't have to constantly switch windows and lose track of where I was
 
-#the dictionary
-dna_letters = dict(
-    A = 0, 
-    C = 0, 
-    G = 0, 
-    T = 0
-    )
+#this is here just in case, I need to use it
+import re
+
+
 
 
 
@@ -56,15 +53,32 @@ def DNA_menu_complicated():
     print()
     print()
 
+#dna counting, its counts! partially. . .
+def dna_count(DNA):
+    dna_letters = {
+        "A" : 0, 
+        "C" : 0, 
+        "G" : 0, 
+        "T" : 0}
+    for letters in DNA:
+        dna_letters ["A"] += 1
+        dna_letters ["C"] += 1
+        dna_letters ["G"] += 1
+        dna_letters ["T"] += 1
+        print(dna_letters)
 
-
+#the loop
 while True:
      
      #opening menu
      DNA_menu()
      dna_menu = input("which file would you like to check? ")
      if dna_menu == "1":
-        DNA_menu_raw()
+        dna_raw = open("dna_raw.txt")
+        print(dna_raw)
+        dna_count(dna_raw)
+        dna_raw.close()
+        
         break
         
     
@@ -76,6 +90,10 @@ while True:
          print("ok ending program")
          break
      #breaking the whole loop for now until the dictonary is up and running
+
+     
+
+
 
 
 
