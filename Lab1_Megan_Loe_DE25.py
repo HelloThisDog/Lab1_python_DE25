@@ -12,16 +12,16 @@
 #all of the above is the instructions for this lab, I copied into here so I don't have to constantly switch windows and lose track of where I was
 
 #the imported functions
-import re #I might not need this one
-
 import linecache
 
+import matplotlib.pyplot as plt
 
-
+import numpy as np
 
 #this area is for the menus
 #this is the opening menu
 def DNA_menu():
+    print()
     print("1. dna txt file")
     print()
     print("2. the more complicated dna txt file")
@@ -32,6 +32,7 @@ def DNA_menu():
 
 #menu for the first txt file
 def DNA_menu_raw():
+    print()
     print("sequence 1")
     print()
     print("sequence 2")
@@ -44,6 +45,7 @@ def DNA_menu_raw():
 
 #menu for the second txt file
 def DNA_menu_comp():
+    print()
     print("sequence 1")
     print()
     print("sequence 2")
@@ -54,26 +56,36 @@ def DNA_menu_comp():
     print()
     print()
 
-#dna counting, its counts! partially. . .
+#dna counting, it counts!
 def dna_count(DNA):
+    
     #the dictionary for the letters that need to be found
     dna_let = {
         "A" : 0, "C" : 0, 
         "G" : 0, "T" : 0}
+
     #to count the letters
     for letters in DNA:
         if letters == "a" or letters == "A":
             dna_let["A"] += 1
+            
         
         elif letters == "c" or letters == "C":
             dna_let ["C"] += 1
+            
         
         elif letters == "g" or letters == "G":
             dna_let ["G"] += 1
+            
         
         elif letters == "t" or letters == "T":
-            dna_let ["T"] += 1    
+            dna_let ["T"] += 1
+
     print(dna_let)
+
+
+
+
 
 #the loop
 while True:
@@ -94,34 +106,34 @@ while True:
 
         #the menu to select sequence for the first file
      if dna_menu == "1":
-         dna_seq_1 = input("which sequence would you like to run? ") #selects the sequence to read
+         dna_seq_nr = input("which sequence would you like to run? ") #selects the sequence to read
 
         #opens the file
          dna_raw = open("dna_raw.txt")
 
         #the menu to select sequences
-         if dna_seq_1 == "1": #sequence 1
+         if dna_seq_nr == "1": #sequence 1
              seq1_raw = linecache.getline("dna_raw.txt", 2)
              print(seq1_raw)
              dna_count(seq1_raw) #counts the letters in the sequence
              dna_raw.close()
              break
          
-         elif dna_seq_1 == "2": #sequence 2
+         elif dna_seq_nr == "2": #sequence 2
              seq2_raw = linecache.getline("dna_raw.txt", 4)
              print(seq2_raw)
              dna_count(seq2_raw)
              dna_raw.close()
              break
          
-         elif dna_seq_1 =="3": #sequence 3
+         elif dna_seq_nr =="3": #sequence 3
              seq3_raw = linecache.getline("dna_raw.txt", 6)
              print(seq3_raw)
              dna_count(seq3_raw)
              dna_raw.close()
              break
          
-         elif dna_seq_1 =="4": #sequence 4
+         elif dna_seq_nr =="4": #sequence 4
              seq4_raw = linecache.getline("dna_raw.txt", 8)
              print(seq4_raw)
              dna_count(seq4_raw)
