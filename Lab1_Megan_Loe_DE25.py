@@ -16,15 +16,13 @@ import linecache
 
 import matplotlib.pyplot as plt
 
-import numpy as np
-
 #this area is for the menus
 #this is the opening menu
 def DNA_menu():
     print()
     print("1. dna txt file")
     print()
-    print("2. the more complicated dna txt file")
+    print("2. the more complicated dna txt file, DOES NOT WORK CURRENTLY")
     print()
     print("3. end")
     print()
@@ -69,22 +67,37 @@ def dna_count(DNA):
         if letters == "a" or letters == "A":
             dna_let["A"] += 1
             
-        
         elif letters == "c" or letters == "C":
             dna_let ["C"] += 1
             
-        
         elif letters == "g" or letters == "G":
             dna_let ["G"] += 1
-            
-        
+             
         elif letters == "t" or letters == "T":
             dna_let ["T"] += 1
 
     print(dna_let)
 
+def dna_graph(DNA): #this is the graph output
+    x = ["A", "C", "G", "T"]
 
+    y = [0, 0, 0, 0]
 
+    for letters in DNA: #copied this from the dna count, but now it adds to y
+        if letters == "a" or letters == "A":
+            y[0] += 1
+        
+        elif letters == "c" or letters == "C":
+            y[1] += 1
+        
+        elif letters == "g" or letters == "G":
+            y[2] += 1
+        
+        elif letters == "t" or letters == "T":
+            y[3] += 1
+    
+    plt.bar(x, y)
+    plt.show()
 
 
 #the loop
@@ -113,9 +126,10 @@ while True:
 
         #the menu to select sequences
          if dna_seq_nr == "1": #sequence 1
-             seq1_raw = linecache.getline("dna_raw.txt", 2)
+             seq1_raw = linecache.getline("dna_raw.txt", 2) #fetches the sequence
              print(seq1_raw)
              dna_count(seq1_raw) #counts the letters in the sequence
+             dna_graph(seq1_raw) #shows the graph for the sequence
              dna_raw.close()
              break
          
@@ -123,6 +137,7 @@ while True:
              seq2_raw = linecache.getline("dna_raw.txt", 4)
              print(seq2_raw)
              dna_count(seq2_raw)
+             dna_graph(seq2_raw)
              dna_raw.close()
              break
          
@@ -130,6 +145,7 @@ while True:
              seq3_raw = linecache.getline("dna_raw.txt", 6)
              print(seq3_raw)
              dna_count(seq3_raw)
+             dna_graph(seq3_raw)
              dna_raw.close()
              break
          
@@ -137,6 +153,7 @@ while True:
              seq4_raw = linecache.getline("dna_raw.txt", 8)
              print(seq4_raw)
              dna_count(seq4_raw)
+             dna_graph(seq4_raw)
              dna_raw.close()
              break
      
