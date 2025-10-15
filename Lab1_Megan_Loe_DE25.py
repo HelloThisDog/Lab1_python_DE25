@@ -9,7 +9,7 @@
 #for each sequence, graph the frequency of DNA letters for each sequence
 
 
-#all of the above is the instructions for this lab, I copied into here so I don't have to constantly switch windows and lose track of where I was
+#all of the above is the instructions for this lab
 
 #the imported functions
 import linecache
@@ -130,7 +130,7 @@ while True:
              print(seq1_raw)
              dna_count(seq1_raw) #counts the letters in the sequence
              dna_graph(seq1_raw) #shows the graph for the sequence
-             dna_raw.close()
+             dna_raw.close() #closes file to free memory
              break
          
          elif dna_seq_nr == "2": #sequence 2
